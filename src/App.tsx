@@ -8,7 +8,7 @@ import {Game} from './Game'
 
 
 // export weil es im index.tsx importiert wird
-export function App() {
+export function App  () {
   const[list , setList] = useState([]);
   const[inputData , setInputData] = useState("test");
   
@@ -23,7 +23,7 @@ export function App() {
     setInputData(""); //erase inputfield afterwards
   }
 
-  
+
 
 
   return (
