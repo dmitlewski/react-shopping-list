@@ -42,8 +42,28 @@ export function App() {
     <div className="App">
       <p className = "welcomeTitle" >Welcome to the shopping list</p>
       <div className ="input">
-        <input type="text" value={inputData} className="textBar" onClick={getReady} onChange={(e) =>handleInputData(e.target.value)}/>       {/* wenn es ein event e gibt, dann trigger diese funktion und übergib den wert von e */}
-        {fieldClicked&&<input type="button" value="ADD" className="button" onClick={handleAddItem}/>} {/* button wird erst angezeigt wenn man ins Feld klickt */}
+        {/* wenn es ein event e gibt, dann trigger diese funktion und übergib den wert von e */}
+        <input
+          type="text"
+          value={inputData}
+          className="textBar"
+          onClick={ function() { getReady() } }
+          onChange={ function(e) { handleInputData(e.target.value) } }
+          // onClick={getReady}
+          // onChange={e => setInputData(e.target.value)}
+        />
+        {/*
+          React.createElement("input", {
+            type: "text",
+            value: inputData,
+            className: "textBar",
+            onClick: getReady,
+            onChange: (e) => handleInputData(e.target.value),
+          })
+        */}
+
+        {/* button wird erst angezeigt wenn man ins Feld klickt */}
+        {fieldClicked && <input type="button" value="ADD" className="button" onClick={handleAddItem}/>}
       </div>
 
       <div className="list">
@@ -52,3 +72,26 @@ export function App() {
     </div>
   );
 }
+
+
+/*
+
+var a = 5;
+let b = 6;
+const c = 7;
+
+function myFunction(d) {
+  const e = d + 1;
+  const a = 1;  // shadows outer a
+  console.log(a, b, c, d, e)  // 1, 6, 7, 8, 9
+}
+
+function myOtherFunction(d) {
+  const e = d + 1000;
+  console.log(a, b, c, d, e)  // 5, 6, 7, 8, 1008
+}
+
+myFunction(8)
+myOtherFunction(8)
+
+*/
