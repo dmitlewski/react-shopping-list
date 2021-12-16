@@ -8,7 +8,7 @@ import './App.css';
 
 // export weil es eventuell exportiert wird
 export function App() {
-  const[list , setList] = useState([]);
+  const[list , setList] = useState<string[]>([]);
   const[inputData , setInputData] = useState("type item here...");
   const addText = "ADD";
   const [fieldClicked , setFieldClicked] = useState(false);
@@ -24,8 +24,8 @@ export function App() {
   }
 
   function handleAddItem(){
-    const newList = [list , {inputData}]
-    // setList(newList); not working
+    const newList = [...list, inputData]
+    setList(newList);
     setInputData(""); //erase inputfield afterwards
   }
 
