@@ -67,11 +67,33 @@ export function App() {
         */}
 
         {/* button wird erst angezeigt wenn man ins Feld klickt */}
-        {fieldClicked && <input type="button" value="ADD" className="button" onClick={handleAddItem}/>}
+        {/*fieldClicked && <input type="button" value="ADD" className="button" onClick={handleAddItem}/>*/}
+        {fieldClicked && <button className="button" onClick={handleAddItem}>ADD</button>}
       </div>
-      <div className="list">
-        {/* list be here */}
-      </div>
+
+      {/* this is what we want */}
+      {/* <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+      </ul>*/}
+      {/*<ul className="list"> { ["asdf", "foo"] } </ul>*/}
+      {/*<ul className="list"> { [<li>asdf</li>, <li>foo</li>] } </ul>*/}
+      {/*<ul className="list">{list}</ul>*/}
+      <ul className="list">
+        {
+          list.map(function transformStringToLi(item, _index) {
+            return <li>{item}  <button onClick={/*TODO*/}>X</button>  </li>;
+          })
+          // list.map(item => (
+          //   <li>
+          //     {item}
+          //     <button>X</button>
+          //   </li>
+          // ))
+        }
+      </ul>
+
     </div>
   );
 }
