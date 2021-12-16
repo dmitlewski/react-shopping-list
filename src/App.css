@@ -38,3 +38,7 @@
 .button:hover {
   background: rgb(113, 200, 235);
 }
+
+.textBar::placeholder{
+  color: red;
+}

@@ -8,8 +8,8 @@ import './App.css';
 
 // export weil es eventuell exportiert wird
 export function App() {
-  const[list , setList] = useState([]);
-  const[inputData , setInputData] = useState("type item here...");
+  const[list , setList] = useState<String[]>([]);
+  const[inputData , setInputData] = useState("");
   const addText = "ADD";
   const [fieldClicked , setFieldClicked] = useState(false);
   
@@ -19,13 +19,14 @@ export function App() {
 
   }
 
-  function handleInputData(event: string){
-    setInputData(event);
+  function handleInputData(event: React.ChangeEvent<HTMLInputElement>){ //abgefahrener Typ = INstanz
+    setInputData(event.target.value); //ist jetzt ein String
   }
 
   function handleAddItem(){
-    const newList = [list , {inputData}]
-    // setList(newList); not working
+
+    const newList = [...list , inputData] //array-spread
+    setList(newList);
     setInputData(""); //erase inputfield afterwards
   }
 
@@ -36,13 +37,12 @@ export function App() {
   function displayAddButton(){
     setFieldClicked(true);
   }
-
-
   return (
     <div className="App">
       <p className = "welcomeTitle" >Welcome to the shopping list</p>
       <div className ="input">
-        <input type="text" value={inputData} className="textBar" onClick={getReady} onChange={(e) =>handleInputData(e.target.value)}/>       {/* wenn es ein event e gibt, dann trigger diese funktion und übergib den wert von e */}
+
+        <input type="text" value={inputData} placeholder={"type item here.."} className="textBar" onClick={getReady} onChange={function blaNamebla (e) {handleInputData(e)}}/>       {/* wenn es ein event e gibt, dann trigger diese funktion und übergib den wert von e */}
         {fieldClicked&&<input type="button" value="ADD" className="button" onClick={handleAddItem}/>} {/* button wird erst angezeigt wenn man ins Feld klickt */}
       </div>
 
