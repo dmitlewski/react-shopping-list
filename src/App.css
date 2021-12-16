@@ -1,0 +1,38 @@
+.App{
+  text-align: center;
+}
+
+
+.welcomeTitle{
+  font-size: 24px;
+  margin: 20px;
+  font: Arial;
+  
+}
+
+.button{
+  margin: 5px;
+  width: 80px;
+  height: 26px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  background-color: #13caa3;
+  border-radius: 6px;
+  cursor: pointer;
+  font: Arial;
+}
+
+.textBar{
+  margin: 10px;
+  width: 160px;
+  height: 20px;
+  border: 2px solid #13caa3;
+  border-radius: 6px;
+  font: Arial;
+}
+
+.button:hover {
+  background: rgb(113, 200, 235);
+}
