@@ -26,7 +26,7 @@
 }
 
 .textBar{
-  margin: 5px;
+  margin: 10px;
   width: 192px;
   height: 20px;
   border: 2px solid #13caa3;
@@ -40,5 +40,16 @@
 }
 
 .textBar::placeholder{
-  color: red;
+  color: rgb(17, 193, 224);
+}
+
+.deleteButton{
+  background-color: #13caa3;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+}
+.deleteButton:hover {
+  background: rgb(224, 9, 9);
 }
