@@ -118,7 +118,7 @@ export function App() {
             return <div>
             
             
-            <span className={showDeleteButton === false? "item" : "toggle"} style={} onClick={handleShowDeleteButton} >{item} </span>
+            <span className={showDeleteButton === false? "item" : "toggle"} onClick={handleShowDeleteButton} >{item} </span>
 
 
 
