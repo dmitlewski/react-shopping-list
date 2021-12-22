@@ -53,3 +53,39 @@
 .deleteButton:hover {
   background: rgb(224, 9, 9);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.toggle{
+  padding: 20px;
+  border-radius: 40px;
+  animation-name: keyframes1;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transform-origin: 30% 5%;
+}
+
+@keyframes keyframes1 {
+  0% {
+    transform: rotate(-1deg);
+    animation-timing-function: ease-in;
+  }
+
+
+  50% {
+    transform: rotate(1.5deg);
+    animation-timing-function: ease-out;
+  }
+}

@@ -26,7 +26,7 @@ export function App() {
   }
 
   function handleAddItem(){
-    const newList = [...list , inputData] //array-spread:bisherige Liste wird ausgepackt mit ... und die inputData angehängt
+    const newList = [...list , inputData]  //array-spread:bisherige Liste wird ausgepackt mit ... und die inputData angehängt
     setList(newList);
     setInputData(""); //erase inputfield afterwards
     
@@ -116,7 +116,12 @@ export function App() {
         {
           list.map(function transformStringToLi(item, index) {
             return <div>
-            <span className="item" onClick={handleShowDeleteButton} >{item} </span>
+            
+            
+            <span className={showDeleteButton === false? "item" : "toggle"} style={} onClick={handleShowDeleteButton} >{item} </span>
+
+
+
             {showDeleteButton && <button className="deleteButton" onClick={ function foo() {removeItemFromList(index)}} >X</button>}
             </div>
           })
