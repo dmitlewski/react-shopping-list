@@ -29,6 +29,7 @@ export function App() {
     const newList = [...list , inputData]  //array-spread:bisherige Liste wird ausgepackt mit ... und die inputData angehängt
     setList(newList);
     setInputData(""); //erase inputfield afterwards
+    setTextWasPutInBar(false); /// evtl wieder rausnehmen!!!
     
   }
 
