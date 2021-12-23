@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {useState} from 'react';
 import './App.css';
 
@@ -34,10 +35,15 @@ export function App() {
   function removeItemFromList(index: number){
     const newList = [];                 //newList wird angelegt, leer
       for (let i = 0; i < list.length; i++){
-        if (index != i){ //wenn der index ungleich der Laufvariable, dann setze das Item auf die newList - d.h. alle nicht angeklickten Items werden wieder auf die newList gesetzt
+        if (index !== i){ //wenn der index ungleich der Laufvariable, dann setze das Item auf die newList - d.h. alle nicht angeklickten Items werden wieder auf die newList gesetzt
           newList.push(list[i]); //pushe das item mit dem Index i aus der list in die newList
         }
       }
+
+      // [1,2,3,4,5,6,7,8].filter(   function(item) {  return item > 5  }   )
+      // const newList = list.filter(   function(_item, i) { return index !== i }  )
+      // const newList = list.filter(   (_item, i) => index !== i   )
+
       setList(newList);     //mache newList zur list
   }
 
@@ -89,9 +95,16 @@ export function App() {
           value={inputData}
           placeholder={"type item here.."}
           className="textBar"
-          onClick={ function blablafooname () { getReady() } }
-          onChange={ function blablaname(evt) { handleInputData(evt) } } //wenn onchange getriggert wird, dann dann wird eine function erstellt, die die Variable evt definiert und diese wird vom browser als ChangeEvent Objekt initilisiert
-          onKeyDown={function foo2(evt){handleKeyDownEnter(evt)}} 
+
+          onClick={ function blablafooname(_clickEvent) { getReady() } }
+
+          onChange={ function blablaname(changeEvent) { handleInputData(changeEvent) } } //wenn onchange getriggert wird, dann dann wird eine function erstellt, die die Variable evt definiert und diese wird vom browser als ChangeEvent Objekt initilisiert
+
+
+          onKeyDown={    function foo2(keyDownEvent) { handleKeyDownEnter(keyDownEvent) }      }
+
+          // onKeyDown={Semmelknödel} // Semmelknödel wird mit KeyDownEvent anstatt Semmel aufgerufen
+
           // onClick={getReady}
           // onChange={e => setInputData(e.target.value)}
         />
