@@ -121,7 +121,9 @@ export function App() {
 
         {/* button wird erst angezeigt wenn etwas eingegeben wurde ins Feld */}
         {/*textWasPutInBar && <input type="button" value="ADD" className="button" onClick={handleAddItem}/>*/} {/* // ist das selbe wie der button unten bloß reactish */}
-        {textWasPutInBar && !showDeleteButton && <button className="addButton" onClick={handleAddItem}>Add</button>}
+        {!showDeleteButton &&
+          <button disabled={!textWasPutInBar} className="addButton" onClick={handleAddItem}>Add</button>
+        }
         {showDeleteButton && <button className="deleteAllButton" onClick={clearList}>Delete All</button>}
 
       </div>

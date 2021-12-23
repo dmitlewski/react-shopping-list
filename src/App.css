@@ -30,6 +30,10 @@ ul {
   cursor: pointer;
   font: Arial;
 }
+.addButton:disabled {
+  background-color: grey;
+  opacity: .5;
+}
 
 .textBar{
   margin: 10px;
@@ -41,7 +45,7 @@ ul {
   
 }
 
-.addButton:hover {
+.addButton:not(:disabled):hover {
   background: rgb(113, 200, 235);
 }
 
