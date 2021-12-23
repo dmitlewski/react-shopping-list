@@ -25,11 +25,13 @@ export function App() {
     showAddButton();
   }
 
-  function handleAddItem(){
+  function handleAddItem(evt) {
+    evt.preventDefault()
 
     if (inputData === "") {
       return
     }
+
     const newList = [...list , inputData]  //array-spread:bisherige Liste wird ausgepackt mit ... und die inputData angehängt
     setList(newList);
     setInputData(""); //erase inputfield afterwards
@@ -87,7 +89,7 @@ export function App() {
   return (
     <div className="App">
       <p className = "welcomeTitle" >Welcome to the shopping list</p>
-      <div className ="input" >
+      <form className ="input" onSubmit={handleAddItem} >
 
         {/* wenn es ein event e gibt, dann trigger diese funktion und übergib den wert von e */}
         <input
@@ -101,7 +103,7 @@ export function App() {
           onChange={ function blablaname(changeEvent) { handleInputData(changeEvent) } } //wenn onchange getriggert wird, dann dann wird eine function erstellt, die die Variable evt definiert und diese wird vom browser als ChangeEvent Objekt initilisiert
 
 
-          onKeyDown={    function foo2(keyDownEvent) { handleKeyDownEnter(keyDownEvent) }      }
+          // onKeyDown={    function foo2(keyDownEvent) { handleKeyDownEnter(keyDownEvent) }      }
 
           // onKeyDown={Semmelknödel} // Semmelknödel wird mit KeyDownEvent anstatt Semmel aufgerufen
 
@@ -126,7 +128,7 @@ export function App() {
         }
         {showDeleteButton && <button className="deleteAllButton" onClick={clearList}>Delete All</button>}
 
-      </div>
+      </form>
 
 
 
