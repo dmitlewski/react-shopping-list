@@ -44,8 +44,6 @@ export function App() {
   }
 
 
-
-
   function hideInitialText(){
     setInputData(""); //erase initial message "type item here"
   }
@@ -64,6 +62,19 @@ export function App() {
     
   }
 
+  function handleKeyDownEnter(event: React.KeyboardEvent<HTMLInputElement>){
+    if (event.key === 'Enter'){
+      handleAddItem();
+    } 
+  }
+
+  function clearList(){
+    const newList: React.SetStateAction<String[]> = [];
+    setList(newList); 
+  }
+
+
+
 
 
 //{}= Expression in JS
@@ -73,7 +84,7 @@ export function App() {
   return (
     <div className="App">
       <p className = "welcomeTitle" >Welcome to the shopping list</p>
-      <div className ="input">
+      <div className ="input" >
 
         {/* wenn es ein event e gibt, dann trigger diese funktion und übergib den wert von e */}
         <input
@@ -83,6 +94,7 @@ export function App() {
           className="textBar"
           onClick={ function blablafooname () { getReady() } }
           onChange={ function blablaname(evt) { handleInputData(evt) } } //wenn onchange getriggert wird, dann dann wird eine function erstellt, die die Variable evt definiert und diese wird vom browser als ChangeEvent Objekt initilisiert
+          onKeyDown={function foo2(evt){handleKeyDownEnter(evt)}} 
           // onClick={getReady}
           // onChange={e => setInputData(e.target.value)}
         />
@@ -99,7 +111,9 @@ export function App() {
 
         {/* button wird erst angezeigt wenn etwas eingegeben wurde ins Feld */}
         {/*textWasPutInBar && <input type="button" value="ADD" className="button" onClick={handleAddItem}/>*/} {/* // ist das selbe wie der button unten bloß reactish */}
-        {textWasPutInBar && <button className="button" onClick={handleAddItem}>ADD</button>}
+        {textWasPutInBar && !showDeleteButton && <button className="addButton" onClick={handleAddItem}>Add</button>}
+        {showDeleteButton && <button className="deleteAllButton" onClick={clearList}>Delete All</button>}
+
       </div>
 
 
@@ -115,14 +129,9 @@ export function App() {
       {/*<ul className="list">{list}</ul>*/}
       <div className="list">
         {
-          list.map(function transformStringToLi(item, index) {
+          list.map(function transformStringToSpan(item, index) {
             return <div>
-            
-            
-            <span className={showDeleteButton === false? "item" : "toggle"} onClick={handleShowDeleteButton} >{item} </span>
-
-
-
+            <span className={showDeleteButton === false? "itemStatic" : "itemWiggle"} onClick={handleShowDeleteButton} >{item}</span>
             {showDeleteButton && <button className="deleteButton" onClick={ function foo() {removeItemFromList(index)}} >X</button>}
             </div>
           })
