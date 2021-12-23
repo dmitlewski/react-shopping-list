@@ -29,7 +29,6 @@ export function App() {
     setList(newList);
     setInputData(""); //erase inputfield afterwards
     setTextWasPutInBar(false); /// evtl wieder rausnehmen!!!
-    
   }
 
   function removeItemFromList(index: number){
@@ -57,8 +56,7 @@ export function App() {
     }
     else if(showDeleteButton === true){
       setShowDeleteButton(false);
-    }
-    
+    } 
   }
 
   function handleKeyDownEnter(event: React.KeyboardEvent<HTMLInputElement>){

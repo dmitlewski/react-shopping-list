@@ -8,7 +8,6 @@
   margin: top 30px;
   font: Arial;
   color: rgb(83, 83, 83);
-  
 }
 
 .addButton{
@@ -75,18 +74,11 @@
   background: rgb(224, 9, 9);
 }
 
-
-
-
-
 .itemStatic{
   font-size: 16px;
   font: Arial;
   color: rgb(83, 83, 83);
 }
-
-
-
 
 .itemWiggle{
   font-size: 16px;
@@ -98,14 +90,12 @@
   transform-origin: 50% 10%;
 }
 
-
 @keyframes shake {
   0% {
     transform: rotate(-1deg);
     animation-timing-function: ease-in;
   }
-
-
+  
   50% {
     transform: rotate(1.5deg);
     animation-timing-function: ease-out;
