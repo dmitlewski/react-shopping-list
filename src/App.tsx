@@ -133,13 +133,23 @@ export function App() {
       {/*<ul className="list"> { ["asdf", "foo"] } </ul>*/}
       {/*<ul className="list"> { [<li>asdf</li>, <li>foo</li>] } </ul>*/}
       {/*<ul className="list">{list}</ul>*/}
-      <div className="list">
+      <ul className="list">
         {
           list.map(function transformStringToSpan(item, index) {
-            return <div>
-            <span className={showDeleteButton === false? "itemStatic" : "itemWiggle"} onClick={handleShowDeleteButton} >{item}</span>
-            {showDeleteButton && <button className="deleteButton" onClick={ function foo() {removeItemFromList(index)}} >X</button>}
-            </div>
+            return (
+              <li>
+                <span
+                  className={showDeleteButton === false? "itemStatic" : "itemWiggle"}
+                  onClick={handleShowDeleteButton}
+                  >{item}</span>
+                {showDeleteButton && (
+                  <button
+                    className="deleteButton"
+                    onClick={ function foo() {removeItemFromList(index)}}
+                    >X</button>
+                )}
+              </li>
+            )
           })
           // list.map(item => (
           //   <li>
@@ -148,7 +158,7 @@ export function App() {
           //   </li>
           // ))
         }
-      </div>
+      </ul>
 
     </div>
   );
