@@ -26,6 +26,10 @@ export function App() {
   }
 
   function handleAddItem(){
+
+    if (inputData === "") {
+      return
+    }
     const newList = [...list , inputData]  //array-spread:bisherige Liste wird ausgepackt mit ... und die inputData angehängt
     setList(newList);
     setInputData(""); //erase inputfield afterwards
