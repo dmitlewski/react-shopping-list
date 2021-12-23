@@ -145,7 +145,7 @@ export function App() {
         {
           list.map(function transformStringToSpan(item, index) {
             return (
-              <li>
+              <li key={item + index}>
                 <span
                   className={showDeleteButton === false? "itemStatic" : "itemWiggle"}
                   onClick={handleShowDeleteButton}
