@@ -80,16 +80,6 @@
   color: rgb(83, 83, 83);
 }
 
-.itemWiggle{
-  font-size: 16px;
-  font: Arial;
-  color: rgb(218, 18, 18);
-  padding: 20px;
-  animation-name: shake;
-  animation-iteration-count: infinite;
-  transform-origin: 50% 10%;
-}
-
 @keyframes shake {
   0% {
     transform: rotate(-1deg);
@@ -101,3 +91,14 @@
     animation-timing-function: ease-out;
   }
 }
+
+.itemWiggle{
+  font-size: 16px;
+  font: Arial;
+  color: rgb(218, 18, 18);
+  padding: 20px;
+  animation-name: shake;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 10%;
+}
+

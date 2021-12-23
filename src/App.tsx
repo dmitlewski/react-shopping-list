@@ -47,7 +47,6 @@ export function App() {
       setList(newList);     //mache newList zur list
   }
 
-
   function hideInitialText(){
     setInputData(""); //erase initial message "type item here"
   }
@@ -75,9 +74,6 @@ export function App() {
     const newList: React.SetStateAction<String[]> = [];
     setList(newList); 
   }
-
-
-
 
 
 //{}= Expression in JS
