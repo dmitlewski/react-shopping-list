@@ -14,7 +14,6 @@ export function App() {
   const [textWasPutInBar , setTextWasPutInBar] = useState(false);
   const [showDeleteButton , setShowDeleteButton] = useState(false);
 
-  
   function getReady(){
     hideInitialText();
     setShowDeleteButton(false);
