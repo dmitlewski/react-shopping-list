@@ -90,7 +90,6 @@ export function App() {
     <div className="App">
       <p className = "welcomeTitle" >Welcome to the shopping list</p>
       <form className ="input" onSubmit={handleAddItem} >
-
         {/* wenn es ein event e gibt, dann trigger diese funktion und übergib den wert von e */}
         <input
           type="text"
